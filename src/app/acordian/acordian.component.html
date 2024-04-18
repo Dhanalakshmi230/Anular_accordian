@@ -1,0 +1,524 @@
+<mat-grid-list cols="2" rowHeight="120px" style="margin-top: 10px; border-radius: 20px;">
+  <!-- First Column -->
+  <mat-grid-tile>
+    <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index" class="card-spacing bordered-card top-cards"
+      [style.marginRight.px]="(i === 0 || i === 2) ? marginRightValue : 0" [style.height.px]="i === 0 ? 100 : 100"
+      style="background-color: rgb(238, 240, 246);">
+      <mat-card-header>
+        <mat-card-title *ngIf="i === 0" style="display: flex; justify-content: center;">
+          <div style="align-self: center;">{{ tile.centerWord }}</div>
+        </mat-card-title>
+        <mat-card-title *ngIf="i !== 0" style="display: flex; justify-content: center;">
+          <input class="base-Input-input small-input" [(ngModel)]="tile.inputValue" />
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="i !== 0">
+        <div style="display: flex; justify-content: space-between;">
+          <div style="align-self: center;">{{ tile.leftWord }}</div>
+          <div style="align-self: center;">{{ tile.rightWord }}</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <!-- Second Column -->
+  <mat-grid-list cols="2" rowHeight="100px" style="border-radius: 20px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index" class="card-spacing bordered-card top-cards"
+        [style.marginRight.px]="(i === 0 || i === 2) ? marginRightValue : 0" [style.height.px]="i === 0 ? 100 : 100"
+        [style.textAlign]="(i === 0 || i === 2) ? 'right' : 'initial'" style="background-color: rgb(238, 240, 246);">
+        <mat-card-header>
+          <mat-card-title *ngIf="i === 0" style="display: flex; justify-content: center;">
+            <div style="align-self: center;">{{ tile.centerWord }}</div>
+          </mat-card-title>
+          <mat-card-title *ngIf="i !== 0" style="display: flex; justify-content: center;">
+            <input class="base-Input-input small-input" [(ngModel)]="tile.inputValue" />
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngIf="i !== 0">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">{{ tile.leftWord }}</div>
+            <div style="align-self: center;">{{ tile.rightWord }}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile style="height: 70%; width: 100%; background-color: rgb(244, 242, 255);">
+      <mat-card *ngFor="let tile of tiles.slice(3, 6)" class="card-spacing bordered-card top-cards"
+        style="background-color: rgb(238, 240, 246);">
+        <mat-card-header>
+          <mat-card-title style="display: flex; justify-content: center;">
+            <input class="base-Input-input small-input" [(ngModel)]="tile.inputValue" />
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">{{ tile.leftWord }}</div>
+            <div style="align-self: center;">{{ tile.extraWord }}</div>
+            <div style="align-self: center;">{{ tile.rightWord }}</div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="6" rowHeight="100px" style="margin-top: 0px; background-color: rgb(244, 242, 255);">
+    <!-- Placeholder column for other content (columns 1 to 3) -->
+    <mat-grid-tile colspan="1">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        {{ tiles[0]?.centerWord }} <!-- Use safe navigation operator (?) to handle potential null/undefined -->
+      </div>
+    </mat-grid-tile>
+
+
+    <!-- Amount column (column 4) -->
+    <mat-grid-tile colspan="3">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        <span class="left-amount" style="margin-right: 10px;">56786789</span>
+        <span class="center-amount" style="margin-right: 20px;">4567455</span>
+        <span class="right-amount">098767</span>
+
+      </div>
+    </mat-grid-tile>
+
+
+    <!-- Placeholder columns for other content (columns 5 and 6) -->
+    <mat-grid-tile colspan="1">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        <span class="left-amount" style="margin-right: 20px;">567867890</span>
+        <span class="center-amount" style="margin-right: 20px;">456756789</span>
+        <span class="right-amount">0987567</span>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        <span class="left-amount" style="margin-right: 70px;">5678676</span>
+        <span class="center-amount">4567890</span>
+
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="50px" style="margin-top: 0px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index" class="card-spacing top-cards bordered-no-bottom"
+        style="background-color: rgb(238, 240, 246);">
+
+        <mat-card-title *ngIf="i === 0" style="font-size: 12px;">
+
+          <div style="align-self: right;">USD</div>
+
+
+
+        </mat-card-title>
+
+        <mat-card-content *ngIf="i !== 0" style="font-size: 12px;">
+          <div style="display: flex; justify-content: space-between;">
+
+            <div style="align-self: center;">34,55,645.00</div>
+            <div style="align-self: center;">34,55,645.00</div>
+
+          </div>
+
+
+
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile style="font-size: 12px;">
+      <mat-card *ngFor="let tile of tiles.slice(3, 6); let i = index" class="card-spacing bordered-no-bottom top-cards"
+        style="background-color: #eef0f6;">
+
+        <mat-card-content style="font-size: 12px;">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34,55,645.00</div>
+            <div *ngIf="i !== 2" style="align-self: center;">34,55,645.00</div>
+            <!-- Exclude center amount at index 2 -->
+            <div style="align-self: center;">34,55.00</div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+
+  <mat-grid-list cols="2" rowHeight="110px" style="margin-top: 0px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index"
+        class="card-spacing top-cards bordered-card-bottom" style="background-color: #fdfeff;">
+
+        <mat-card-title *ngIf="i === 0" style="font-size: 12px;">
+
+          <div style="align-self: right;">GHH</div>
+          <div style="align-self: right;">ERW</div>
+          <div style="align-self: right;">TYU</div>
+          <div style="align-self: center;">WER</div>
+
+
+        </mat-card-title>
+
+        <mat-card-content *ngIf="i !== 0" style="font-size: 12px;">
+
+          <div style="display: flex; justify-content: space-between;">
+
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(3, 6)  let i = index"
+        class="card-spacing bordered-card-bottom top-cards" style="background-color: #fdfeff">
+
+        <mat-card-content style="font-size: 12px;">
+
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="50px" style="margin-top: 0px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index" class="card-spacing top-cards bordered-no-bottom"
+        style="background-color: rgb(238, 240, 246);">
+
+        <mat-card-title *ngIf="i === 0" style="font-size: 12px;">
+
+          <div style="align-self: right;">AED</div>
+
+
+
+        </mat-card-title>
+
+        <mat-card-content *ngIf="i !== 0" style="font-size: 12px;">
+          <div style="display: flex; justify-content: space-between;">
+
+            <div style="align-self: center;">34,55,645.00</div>
+            <div style="align-self: center;">34,55,645.00</div>
+
+          </div>
+
+
+
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile style="font-size: 12px;">
+      <mat-card *ngFor="let tile of tiles.slice(3, 6); let i = index" class="card-spacing bordered-no-bottom top-cards"
+        style="background-color: rgb(238, 240, 246);">
+
+        <mat-card-content style="font-size: 12px;">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34,55,645.00</div>
+            <div *ngIf="i !== 2" style="align-self: center;">34,55,645.00</div>
+            <!-- Exclude center amount at index 2 -->
+            <div style="align-self: center;">34,55.00</div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="118px" style="margin-top: 0px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index" class="card-spacing top-cards bordered-bot-bottom"
+        style="background-color: #fdfeff">
+
+        <mat-card-title *ngIf="i === 0" style="font-size: 12px;">
+
+          <div style="align-self: right;">GHH</div>
+          <div style="align-self: right;">ERW</div>
+          <div style="align-self: right;">TYU</div>
+          <div style="align-self: center;">WER</div>
+
+
+        </mat-card-title>
+
+        <mat-card-content *ngIf="i !== 0" style="font-size: 12px;">
+
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile style="font-size: 12px;">
+      <mat-card *ngFor="let tile of tiles.slice(3, 6)  let i = index" class="card-spacing bordered-bot-bottom top-cards"
+        style="background-color: #fdfeff;">
+
+        <mat-card-content style="font-size: 12px;">
+
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+  <mat-grid-list cols="6" rowHeight="100px" style="margin-top: 0px; background-color: rgb(244, 242, 255);">
+    <!-- Placeholder column for other content (columns 1 to 3) -->
+    <mat-grid-tile colspan="1">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        {{ tiles[0]?.centerWord }} <!-- Use safe navigation operator (?) to handle potential null/undefined -->
+      </div>
+    </mat-grid-tile>
+
+
+    <!-- Amount column (column 4) -->
+    <mat-grid-tile colspan="3">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        <span class="left-amount" style="margin-right: 10px;">56786789</span>
+        <span class="center-amount" style="margin-right: 20px;">4567455</span>
+        <span class="right-amount">098767</span>
+
+      </div>
+    </mat-grid-tile>
+
+
+    <!-- Placeholder columns for other content (columns 5 and 6) -->
+    <mat-grid-tile colspan="1">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        <span class="left-amount" style="margin-right: 20px;">567867890</span>
+        <span class="center-amount" style="margin-right: 20px;">456756789</span>
+        <span class="right-amount">0987567</span>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1">
+      <div style="height: 100px; display: flex; justify-content: center; align-items: center;">
+        <span class="left-amount" style="margin-right: 70px;">5678676</span>
+        <span class="center-amount">4567890</span>
+
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list cols="2" rowHeight="50px" style="margin-top: 0px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index" class="card-spacing top-cards bordered-no-bottom"
+        style="background-color: rgb(238, 240, 246);">
+
+        <mat-card-title *ngIf="i === 0" style="font-size: 12px;">
+
+          <div style="align-self: right;">USD</div>
+
+
+
+        </mat-card-title>
+
+        <mat-card-content *ngIf="i !== 0" style="font-size: 12px;">
+          <div style="display: flex; justify-content: space-between;">
+
+            <div style="align-self: center;">34,55,645.00</div>
+            <div style="align-self: center;">34,55,645.00</div>
+
+          </div>
+
+
+
+
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile style="font-size: 12px;">
+      <mat-card *ngFor="let tile of tiles.slice(3, 6); let i = index" class="card-spacing bordered-no-bottom top-cards"
+        style="background-color: #eef0f6;">
+
+        <mat-card-content style="font-size: 12px;">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34,55,645.00</div>
+            <div *ngIf="i !== 2" style="align-self: center;">34,55,645.00</div>
+            <!-- Exclude center amount at index 2 -->
+            <div style="align-self: center;">34,55.00</div>
+          </div>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+
+  <mat-grid-list cols="2" rowHeight="110px" style="margin-top: 0px;">
+    <!-- First Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(0, 3); let i = index"
+        class="card-spacing top-cards bordered-card-bottom" style="background-color: #fdfeff;">
+
+        <mat-card-title *ngIf="i === 0" style="font-size: 12px;">
+
+          <div style="align-self: right;">GHH</div>
+          <div style="align-self: right;">ERW</div>
+          <div style="align-self: right;">TYU</div>
+          <div style="align-self: center;">WER</div>
+
+
+        </mat-card-title>
+
+        <mat-card-content *ngIf="i !== 0" style="font-size: 12px;">
+
+          <div style="display: flex; justify-content: space-between;">
+
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">34556</div>
+            <div style="align-self: center;">7898</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- Second Column -->
+    <mat-grid-tile>
+      <mat-card *ngFor="let tile of tiles.slice(3, 6)  let i = index"
+        class="card-spacing bordered-card-bottom top-cards" style="background-color: #fdfeff">
+
+        <mat-card-content style="font-size: 12px;">
+
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div style="align-self: center;">67890</div>
+            <div *ngIf="i !== 2" style="align-self: center;">3456</div>
+            <div style="align-self: center;">6789</div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>

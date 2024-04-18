@@ -1,0 +1,75 @@
+<div class="container d-flex justify-content-around align-items-center bg-dark text-white p-5">
+    <label>
+      <input type="checkbox" [(ngModel)]="formData.location" [disabled]="addingRow || locationFlag" (change)="handleCheckboxChange($event)" />
+      Current Location
+    </label>
+    <br />
+    <label>
+      Select Country:
+      <select [(ngModel)]="formData.country" (change)="handleCountryChange($event)" [disabled]="addingRow || countryFlag">
+        <option value="">Select Country</option>
+        <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+      </select>
+    </label>
+    <br />
+    <label>
+      Remarks:
+      <textarea [(ngModel)]="formData.remarks" [disabled]="addingRow"></textarea>
+    </label>
+    <br />
+  </div>
+  
+  <div class="container p-3">
+    <button type="button" (click)="handleAddRow()" class="btn btn-primary float-right mb-3">Add Row</button>
+  </div>
+  
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>Selected Country</th>
+        <th>Selected State</th>
+        <th>Selected City</th>
+        <th>Remarks</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows; let i = index">
+        <td>{{ row.selectedCountry }}</td>
+        <td>
+          <select [(ngModel)]="row.selectedState" (change)="handleStateChange(row, $event)" [disabled]="row.disabled">
+            <option value="">Select State</option>
+            <option *ngFor="let state of row.availableStates" [value]="state">{{ state }}</option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="row.selectedCity" [disabled]="row.disabled">
+            <option value="">Select City</option>
+            <option *ngFor="let city of row.availableCities" [value]="city">{{ city }}</option>
+          </select>
+        </td>
+      
+          <td>{{ row.remarks }}</td>
+        
+        <td>
+          <ng-container *ngIf="!row.disabled; else savedMode">
+            <button class="btn btn-success" (click)="handleSaveRow(row)">Save</button>
+          <!-- Inside your ngFor loop for displaying rows -->
+  <button class="btn btn-secondary" (click)="handleCancelEdit(row, i)">Cancel</button>
+  
+  
+          </ng-container>
+          <ng-template #savedMode >
+            <button class="btn btn-primary" (click)="handleEditRow(row)">Edit</button>
+            <button class="btn btn-danger" (click)="handleDeleteRow(i)">Delete</button>
+          </ng-template>
+          
+        </td>
+      </tr>
+    </tbody>
+    
+    
+    
+    
+  </table>
+  
