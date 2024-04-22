@@ -45,7 +45,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 // Application Components
 import { AppComponent } from './app.component';
 import { AcordianComponent } from './acordian/acordian.component';
@@ -67,6 +67,7 @@ const routes: Routes = [
     MatCardModule,
     MatCardModule,
     MatSnackBarModule,
+    MatExpansionModule,
     FormsModule,
 
     RouterModule.forRoot(routes)

@@ -73,3 +73,29 @@
   border-width: 0 4px 4px 4px; /* top, right, bottom, left border widths */
   border-radius: 0 0 8px 0;
 }
+
+
+
+.mat-expansion-panel-body {
+  padding: 0; /* Removes all padding */
+}
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0; /* Ensures no padding is applied */
+}
+:host {
+  display: block;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0; /* Overrides the default padding within this component's scope */
+}
+/* To center the arrow, apply CSS to mat-expansion-panel-header */
+.mat-expansion-panel-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Move the arrow toward the 'centerWord' */
+
+
+
